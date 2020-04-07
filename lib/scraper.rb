@@ -23,10 +23,10 @@ class Scraper
   end
   
    def get_courses
-    get_page.css(".post")
+    get_page.css(".post") #gets XML elements from page
    end
 
-  def make_courses
+  def make_courses #iterates through each element and creates a new course instance
     get_courses.each do |c|
       course = Course.new
       course.title = c.css("h2").text
